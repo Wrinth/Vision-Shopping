@@ -1,0 +1,138 @@
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-3">
+      <h2 class="my-4">Search</h2>
+
+
+
+      <div class="profile-userpic file-upload" style="text-align: center;">
+        <i class="fa fa-camera-retro fa-5x" style="margin: auto;" aria-hidden="true" ng-click="main.triggerUpload()"></i>
+        <input type="file" ngf-select="main.uploadFiles($file, $invalidFiles)" accept="image/jpeg, image/png, image/jpg" style="display:none" id="pictureInput" name="filedata"/>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Type in a product here..." ng-model="main.search.keyword">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button" ng-click="main.searchProduct()">Search</button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-lg-3 -->
+
+    <div id="search_panel" class="col-lg-9" ng-show="main.search.keywords.length > 0" style="margin-bottom: 3%;">
+      <div class="main-box no-header clearfix col-sm-4">
+
+        <!--photo section -->
+
+        <script>
+          $(document).ready(function(){
+
+            //   var divWidth = $('.big-photo').width();
+            //   console.log($('.big-photo').height());
+            // $(".big-photo").resize(function(){
+            //   $(".big-photo").height(divWidth);
+            // });
+            //   console.log($('.big-photo').height());
+            $(".small-photo").click(function(){
+              var temp_path = $(this).children('img').attr('src');
+              $("#big-img").attr("src", temp_path);
+            });
+          });
+        </script>
+
+        <div class="photo-section">
+          <h2>{{main.searchData.name}}</h2>
+          <div class='container' style="margin-top:20px;">
+            <div class="row">
+              <div class='col-xs-9 '  >
+                <figure class="big-photo">
+                  <img id='big-img' class='img-responsive' src='{{main.searchData.picture_1}}' alt="big photo">
+                </figure>
+              </div>
+
+              <div class='col-xs-3 rightcolumn' >
+                <div class='row'>
+                  <div class='col-xs-12 nopadding'>
+                    <figure class="small-photo">
+                      <img class='img-responsive' src='{{main.searchData.picture_1}}' alt="small photo">
+                    </figure>
+                  </div>
+                </div>
+
+                <div class='row'>
+                  <div class='col-xs-12 nopadding'>
+                    <figure class="small-photo">
+                      <img class='img-responsive' src='{{main.searchData.picture_2}}' alt="small photo">
+                    </figure>
+                  </div>
+                </div>
+
+                <div class='row'>
+                  <div class='col-xs-12 nopadding'>
+                    <figure class="small-photo">
+                      <img class='img-responsive' src='{{main.searchData.picture_3}}' alt="small photo">
+                    </figure>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <h4 style="text-align:left; margin-top:20px">Description: </h4>
+          <p class="long-copy">{{main.searchData.description}}</p>
+
+          <div style="text-align:center">
+            <button class="btn btn-ghost" ng-click="main.searchProduct()">Search on Amazon/Walmart</button>
+          </div>
+
+        </div>
+
+
+        <div class="cards" ng-show="main.searchedProducts.length > 0" ng-repeat="product in main.searchedProducts">
+          <div class="card mt-4">
+            <figure class="e-commerce-photo">
+              <img class="card-img-top img-fluid" src="{{product.largeImage}}" alt="{{product.name}}">
+            </figure>
+            <div class="card-body">
+              <a href="{{product.productUrl}}"><h3 class="card-title">{{product.name}}</h3></a>
+              <h4 class="card-price">${{product.salePrice}}</h4>
+              <p class="card-text">{{product.shortDescription}}</p>
+              <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
+            </div>
+          </div>
+          <!-- /.card -->
+
+          <div class="card card-outline-secondary my-4" >
+            <div class="card-header" style="margin-left:20px;">
+              {{ product.numReviews }}Product Reviews
+            </div>
+            <div class="card-body">
+              <p>{{product.shortDescription}}</p>
+              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+              <hr>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+              <hr>
+              <a href="#" class="btn btn-ghost">Leave a Review</a>
+            </div>
+          </div>
+          <!-- /.card -->
+        </div>
+        <div class="main-box no-header clearfix col-sm-8" ng-show="main.searchedUsers.length == 0 && main.search_parameters.hasSearched == true" style="border-left-width: 1px; border-left-style: solid; border-left-color: #ddd;">
+          <div class="main-box-body clearfix" style="text-align: center;">
+            <h1>No Product Matched</h1>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vision Shopping | An Online Shopping Experience</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- End Font Awesome -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-aria.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-cookies.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <script src="https://angular-file-upload.appspot.com/js/ng-file-upload.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <!-- Service -->
+    <script src="scripts/services/flash.js"></script>
+    <script src="scripts/services/authentication.js"></script>
+
+    <script src="scripts/services/user.js"></script>
+    <script src="scripts/services/product.js"></script>
+    <script src="scripts/services/object.js"></script>
+    <!-- end Service -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/shoppingcart.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/register.js"></script>
+    <script src="scripts/controllers/user.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet">
+
+    <!-- endbuild -->
+  </head>
+  <body ng-app="teamgrassesApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="header">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid" >
+          <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="#/">Vision Shopping</a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+            <ul class="nav navbar-nav">
+              <li><a ng-href="#/shoppingcart">Shopping Cart</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item" ng-hide="globals.currentUser">
+                <a class="nav-link" ng-href="#/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+              </li>
+              <li class="nav-item" ng-hide="globals.currentUser">
+                <a class="nav-link" ng-href="#/login"><span class="glyphicon glyphicon-log-in"></span> Log In</a>
+              </li>
+              <li class="nav-item" ng-show="globals.currentUser">
+                <a class="nav-link" ng-href="#/user"><span class="glyphicon glyphicon-user"></span> User</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="padding-left:0; padding-right:0;">
+      <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-click="flash = {}" ng-bind="flash.message"></div>
+      <div ng-view="" style="min-height: 70vh;"></div>
+    </div>
+
+      <!-- <div class="footer" style="margin-bottom:0;">
+        <div class="container">
+          <p favicon><span class="glyphicon glyphicon-heart_remove_this_to_display_icon"></span>
+            Copyright &copy; 2017 by Vision Shopping. All rights reserved.
+          </p>
+        </div>
+      </div> -->
+
+
+
+</body>
+</html>

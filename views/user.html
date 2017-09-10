@@ -1,0 +1,172 @@
+<!-- user:css(.tmp) styles/user.css -->
+<link rel="stylesheet" href="styles/user.css">
+<!-- enduser -->
+<div class="row profile">
+    <div class="col-md-3">
+        <div class="profile-sidebar">
+            <!-- SIDEBAR USERPIC -->
+            <div class="profile-userpic file-upload">
+                <img ng-src="./images/user/{{(user.user.profile_picture === '' ? 'no-picture.png' : user.user.profile_picture)}}" class="img-responsive" alt="" ng-click="user.triggerUpload()">
+                <input type="file" ngf-select="user.uploadFiles($file, $invalidFiles)" accept="image/jpeg, image/png, image/jpg" style="display:none" id="pictureInput" name="filedata"/>
+            </div>
+            <!-- END SIDEBAR USERPIC -->
+            <!-- SIDEBAR USER TITLE -->
+            <div class="profile-usertitle">
+                <div class="profile-usertitle-name">
+                    {{user.user.first_name + " " + user.user.last_name}}
+                    <br>
+                    {{user.current_school.school_name}}
+                </div>
+
+            </div>
+            <!-- END SIDEBAR USER TITLE -->
+
+            <!-- SIDEBAR MENU -->
+            <div class="profile-usermenu">
+                <ul class="nav">
+                    <li ng-class="user.currentpage == 1? 'active' : ''" ng-click="user.currentpage = 1">
+                        <a ng-href="#/user">
+                            <i class="glyphicon glyphicon-home"></i>
+                            Purchase History </a>
+                    </li>
+                    <li ng-class="user.currentpage == 2 || user.currentpage == 4? 'active' : ''" ng-click="user.currentpage = 2">
+                        <a ng-href="#/user">
+                            <i class="glyphicon glyphicon-user"></i>
+                            User Info </a>
+                    </li>
+                    <li ng-class="user.currentpage == 3? 'active' : ''" ng-click="user.currentpage = 3">
+                        <a ng-href="#/user">
+                            <i class="glyphicon glyphicon-cog"></i>
+                            Setting </a>
+                    </li>
+                    <li>
+                        <a ng-href="#/login">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                            Log out </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- END MENU -->
+        </div>
+    </div>
+    <div ng-show="user.currentpage == 1" class="col-md-9">
+        <div class="profile-content">
+            <button class="btn btn-md btn-success">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <hr>
+
+        </div>
+    </div>
+    <div ng-show="user.currentpage == 2" class="col-md-9">
+        <div class="profile-content">
+            <ul class="nav nav-tabs">
+                <li class="active" ng-click="user.currentpage = 2"><a href="#/user">Personal Info</a></li>
+                <li ng-click="user.currentpage = 4"><a href="#/user">Preference</a></li>
+            </ul>
+            <br>
+            <div class="calendarNav tab-pane fade in active" id="userinfo">
+                <form class="form-horizontal" method="post" >
+                    <div class="form-group">
+                        <label for="first_name" class="control-label col-md-4"> Name </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md  textinput textInput form-control" id="first_name" maxlength="30" name="first_name" style="margin-bottom: 10px" type="text" ng-model="user.user.first_name" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone_number" class="control-label col-md-4  requiredField"> Contact Number </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="phone_number" name="phone_number" style="margin-bottom: 10px" type="text" ng-model="user.user.phone_number" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday" class="control-label col-md-4 requiredField"> Birthday </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control"
+                                   type="date" id="birthday" name="controller.user.birthday" ng-model="user.user.birthday" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="aab controls col-md-4"></div>
+                        <div class="controls col-md-8 ">
+                            <button type="submit" name="update" class="btn btn btn-success" id="button-id-update" ng-click="user.updateCurrentUser()">更新</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div ng-show="user.currentpage == 3" class="col-md-9">
+        <div class="profile-content">
+            <h3>Change Password</h3>
+            <form class="form-horizontal" method="post" >
+                <div class="form-group required">
+                    <label for="old_passowrd" class="control-label col-md-4 requiredField"> Old Password <span class="asteriskField">*</span> </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="old_passowrd" name="old_passowrd" style="margin-bottom: 10px" type="password" ng-model="user.password.old_passowrd"/>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label for="new_passowrd" class="control-label col-md-4 requiredField"> New Password <span class="asteriskField">*</span> </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="new_passowrd" name="new_passowrd" style="margin-bottom: 10px" type="password" ng-model="user.password.new_passowrd"/>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label for="repeat_new_passowrd" class="control-label col-md-4 requiredField"> Repeat New Password <span class="asteriskField">*</span> </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="repeat_new_passowrd" name="repeat_new_passowrd" style="margin-bottom: 10px" type="password" ng-model="user.password.repeat_new_passowrd"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="aab controls col-md-4"></div>
+                    <div class="controls col-md-8 ">
+                        <button type="submit" name="update" class="btn btn btn-success" id="button-change-password" ng-click="user.updateCurrentUserPassword()">Change</button>
+                    </div>
+                </div>
+            </form>
+            <h3>语言</h3>
+            <form class="form-horizontal" method="post" >
+                <div class="form-group required">
+                    <label for="language" class="control-label col-md-4 requiredField"> Language </label>
+                    <div class="controls col-md-8 ">
+                        <select class="input-md form-control" id="language" style="margin-bottom: 10px" ng-model="user.language">
+                            <option>中文</option>
+                            <option>English</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="aab controls col-md-4"></div>
+                    <div class="controls col-md-8 ">
+                        <button type="submit" name="update" class="btn btn btn-success" id="button-change-language" ng-click="user.updateCurrentUserlanguage()">Accept</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div ng-show="user.currentpage == 4" class="col-md-9">
+        <div class="profile-content">
+            <ul class="nav nav-tabs">
+                <li ng-click="user.currentpage = 2"><a href="#/user">个人信息</a></li>
+                <li class="active" ng-click="user.currentpage = 4"><a href="#/user">生活习惯</a></li>
+            </ul>
+            <br>
+            <div class="calendarNav tab-pane fade in active" id="userhabit" style="text-align: center;">
+                <div class="row">
+                    <div class="col-sm-3" style="min-height: 10vh;" ng-repeat="user_living_habit in user.user_living_habits">
+                        <div class="card">
+                            <div class="card-block">
+                                {{user.getUserLivingHabitNameByUserLivingHabitID(user_living_habit.living_habit_id)}}
+                                <br>
+                                <button ng-click="user.updateUserLivingHabitRateByID(user_living_habit, user_living_habit.rate-1)" ng-disabled="user_living_habit.rate <= 1">-</button>
+                                {{user.getRateNameByRate(user_living_habit.rate)}}
+                                <button ng-click="user.updateUserLivingHabitRateByID(user_living_habit, user_living_habit.rate+1)" ng-disabled="user_living_habit.rate >= 2">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

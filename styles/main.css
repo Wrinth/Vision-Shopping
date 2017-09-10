@@ -1,0 +1,284 @@
+/*
+light blue: #51a7e0
+dark blue: #2487c9
+darkest blue: #1f74ac
+*/
+
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+/*.footer{
+
+text-align: center;
+margin: 0px 0px 0px 0px;
+font-family: arial, helvetica;
+font-weight: bold ;
+font-size: 11px;
+background-color: #51a7e0;
+}
+.footer p{
+  text-align: center;
+  margin-bottom: 0;
+  height: inherit;
+
+  font-size: 85%;
+
+}*/
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  background: #51a7e0;
+  color: white;
+}
+.footer p{
+  color: white !important;
+  text-align: center !important;
+  margin-top: 15px;
+  font-size: 85%;
+}
+/* Custom page header */
+.header {
+  margin-bottom: 10px;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+/* Yoho's Modification */
+
+.container{
+  width: 100%;
+}
+
+.header
+{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+body  {
+  font-family: 'Lato','Arial',sans-serif;
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4
+{
+  text-align: center;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.nav  {
+  color: red !important;
+}
+.navbar-collapse collapse in
+{
+  border-color: red !important;
+}
+.container-fluid{
+  background-color: #51a7e0 !important;
+}
+.collapse a{
+  color: white !important;
+}
+
+.my-4{
+  font-size: 350% !important;
+}
+.col-lg-3{
+  text-align: center;
+}
+
+.navbar-header a{
+  color: white !important;
+}
+
+.icon-bar{
+  background-color: white !important;
+}
+
+
+.fa {
+  color: #1f74ac !important;
+  margin: 50px auto !important;
+  font-size: 90px;
+}
+
+/* ---  photo-section --- */
+#search_panel{
+  margin-top: 40px;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #f4f4f4;
+  margin-left:  0;
+  margin-right:  0;
+}
+.photo-section{
+  margin-top: 35px;
+    /*background-color: #f4f4f4;*/
+
+
+}
+
+.big-photo{
+  height:  100%;
+  border: 1px solid black ;
+  height: 100%;
+  overflow: auto;
+
+}
+
+
+.small-photo{
+  overflow:hidden;
+  width:100%;
+  display: block;
+  border: 1px solid black ;
+}
+
+/*.rightcolumn{
+  background-color: yellow ;
+}*/
+
+/*.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;}*/
+
+.long-copy{
+    line-height: 145%;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+
+.btn-ghost:link,
+.btn-ghost:visited{
+  border-radius:200px;
+  padding: 10px 30px;
+  text-decoration: none;
+  display: inline-block;
+  border:1px solid #1f74ac;
+  font-weight: 300;
+  color: #1f74ac;
+
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active{
+  border:1px solid #51a7e0;
+  background-color: #51a7e0;
+  color: #fff;
+}
+
+
+.e-commerce-photo{
+  text-indent: -50px;
+  overflow:hidden;
+  width:100%;
+  display: block;
+  border: 1px solid black ;
+}
+
+.card{
+  margin: 30px auto;
+}
+
+.card-body{
+  margin-left: 20px;
+  margin-right: 50px;
+}
+
+.card-title,
+.card-price,h4{
+  text-transform:none;
+  text-align: left;
+}
+
+.card-header{
+  font-size: 22px;
+}
+
+.card-body{
+  font-size: 19px;
+}
