@@ -1,7 +1,9 @@
 /*
-light blue: #51a7e0
-dark blue: #2487c9
-darkest blue: #1f74ac
+blue
+#a7d3ef
+#5faee3
+#1f74ac
+#124364
 */
 
 
@@ -14,6 +16,10 @@ darkest blue: #1f74ac
 
 body {
   padding: 0;
+}
+
+*:focus{
+  outline: none
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -176,9 +182,21 @@ h4
 
 
 .fa {
-  color: #1f74ac !important;
+  color: #a7d3ef !important;
   margin: 50px auto !important;
   font-size: 90px;
+  text-shadow: 2px 2px 5px #989898;
+  transition: color 0.2s text-shadow 0.2s ;
+}
+
+.fa:hover{
+  color: #2691d8 !important;
+}
+
+.fa:active{
+  color: #2691d8 !important;
+  text-shadow: 2px 2px 5px #6e6e6e;
+  transform: translateY(2px);
 }
 
 /* ---  photo-section --- */
@@ -230,6 +248,36 @@ h4
 
 }
 
+.btn-secondary{
+  background: #a7d3ef;
+}
+.btn-secondary:focus{
+  outline: none;
+}
+
+
+.amazonbutton{
+    background-color: white;
+    border: 1px solid #a7d3ef;
+    color: #5faee3;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius:200px;
+    font-weight: 300;
+    font-size: 16px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    margin-bottom: 20px;
+}
+
+
+.amazonbutton:hover,
+.amazonbutton:active{
+    border: 1px solid #5faee3;
+    background-color: #5faee3;
+    color: #fff;
+}
 
 .btn-ghost:link,
 .btn-ghost:visited{
@@ -237,7 +285,7 @@ h4
   padding: 10px 30px;
   text-decoration: none;
   display: inline-block;
-  border:1px solid #1f74ac;
+  border:1px solid #f44336;
   font-weight: 300;
   color: #1f74ac;
 

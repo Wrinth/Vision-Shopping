@@ -1,5 +1,5 @@
 <?php
-require '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 use Aws\S3\S3Client;
 use Aws\S3\Exception\S3Exception;
 use Aws\Common\Credentials\Credentials;
@@ -7,7 +7,7 @@ use Aws\Common\Credentials\Credentials;
 $credentials = new Credentials('AKIAIY7ZMDYU5HLWWBKQ', 'sRaN3uH56Xws8OVxYg7SyCCWmiIsPjPtESe6WF4K');
 
 $bucket = 'vision-shopping';
-                        
+
 // Instantiate the client.
 $s3 = S3Client::factory(array(
     'credentials' => $credentials
@@ -37,7 +37,7 @@ if(isset($_FILES['file'])){
         move_uploaded_file($file_tmp,"../../images/search/".$file_name);
 
 
-        // $filepath should be absolute path to a file on disk                      
+        // $filepath should be absolute path to a file on disk
         $filepath = "../../images/search/".$file_name;
         $keyname = $file_name;
 
@@ -50,7 +50,7 @@ if(isset($_FILES['file'])){
                 'ContentType'  => 'image/jpeg',
                 'ACL'          => 'public-read',
                 'StorageClass' => 'REDUCED_REDUNDANCY',
-                'Metadata'     => array(    
+                'Metadata'     => array(
                     'param1' => 'value 1',
                     'param2' => 'value 2'
                 )
